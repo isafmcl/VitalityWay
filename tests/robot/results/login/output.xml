@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-05-29T16:43:23.647430" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Test" source="C:\Users\isabelle.santos\Downloads\vitalityway_completo\vitalityway\tests\robot\login_test.robot">
+<kw name="Abrir navegador na tela de login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:24.321580" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:43:24.321149" elapsed="1.500071"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.821465" elapsed="0.031178"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.852894" elapsed="0.031515"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:24.320099" elapsed="1.564511"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve realizar login com credenciais válidas" line="19">
+<kw name="Garantir tela de login" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:25.886505" level="INFO">Opening url 'http://localhost:3000'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.886305" elapsed="0.031950"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:25.918750" level="INFO">Executing JavaScript:
+localStorage.clear()
+Without any arguments.</msg>
+<arg>localStorage.clear()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.918513" elapsed="0.010260"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.929364" elapsed="0.034589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:25.964190" elapsed="0.240911"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:26.706819" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.205336" elapsed="0.501629"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:25.885895" elapsed="0.821229"/>
+</kw>
+<kw name="Dado que o usuário informa o e-mail">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.708130" elapsed="0.015872"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:26.724536" level="INFO">Executing JavaScript:
+document.getElementById('login-email').value = 'cuidador@email.com';
+Without any arguments.</msg>
+<arg>document.getElementById('login-email').value = '${email}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.724231" elapsed="0.008621"/>
+</kw>
+<arg>cuidador@email.com</arg>
+<status status="PASS" start="2026-05-29T16:43:26.707643" elapsed="0.025397"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.734247" elapsed="0.020631"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:26.755286" level="INFO">Executing JavaScript:
+document.getElementById('login-senha').value = '12345678';
+Without any arguments.</msg>
+<arg>document.getElementById('login-senha').value = '${senha}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.755057" elapsed="0.006138"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-05-29T16:43:26.733648" elapsed="0.027681"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:26.763677" level="INFO">Submitting form 'id=form-login'.</msg>
+<arg>id=form-login</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.762542" elapsed="0.029297"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:27.792815" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:26.792074" elapsed="1.000904"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:26.761849" elapsed="1.031506"/>
+</kw>
+<kw name="Então o sistema deve exibir a página inicial">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TITULO_HOME}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:27.794609" elapsed="0.047278"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:27.871100" level="INFO">Element 'id=home-boas-vindas' contains text 'Olá'.</msg>
+<arg>${TITULO_HOME}</arg>
+<arg>Olá</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-05-29T16:43:27.842131" elapsed="0.029088"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:27.793949" elapsed="0.077406"/>
+</kw>
+<doc>Partição P3 — credenciais válidas → login realizado com sucesso</doc>
+<status status="PASS" start="2026-05-29T16:43:25.884753" elapsed="1.986943"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir erro ao deixar e-mail vazio" line="26">
+<kw name="Garantir tela de login" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:27.873906" level="INFO">Opening url 'http://localhost:3000'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:43:27.873703" elapsed="0.040050"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:27.914477" level="INFO">Executing JavaScript:
+localStorage.clear()
+Without any arguments.</msg>
+<arg>localStorage.clear()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:27.914123" elapsed="0.017514"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-05-29T16:43:27.932106" elapsed="0.071154"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.003497" elapsed="0.137017"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:28.641615" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.140761" elapsed="0.500970"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:27.873361" elapsed="0.768490"/>
+</kw>
+<kw name="Dado que o usuário informa o e-mail">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.642943" elapsed="0.015670"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:28.659098" level="INFO">Executing JavaScript:
+document.getElementById('login-email').value = '';
+Without any arguments.</msg>
+<arg>document.getElementById('login-email').value = '${email}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.658837" elapsed="0.006141"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-29T16:43:28.642212" elapsed="0.022921"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.666010" elapsed="0.018812"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:28.685365" level="INFO">Executing JavaScript:
+document.getElementById('login-senha').value = '12345678';
+Without any arguments.</msg>
+<arg>document.getElementById('login-senha').value = '${senha}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.685058" elapsed="0.006811"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-05-29T16:43:28.665563" elapsed="0.026471"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:28.693148" level="INFO">Submitting form 'id=form-login'.</msg>
+<arg>id=form-login</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.692822" elapsed="0.020405"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:29.714753" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:28.713467" elapsed="1.001519"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:28.692397" elapsed="1.022762"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-login.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.716213" elapsed="0.021892"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:29.758021" level="INFO">${texto} = E-mail obrigatório</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.738364" elapsed="0.019723"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.758314" elapsed="0.000650"/>
+</kw>
+<arg>E-mail obrigatório</arg>
+<status status="PASS" start="2026-05-29T16:43:29.715711" elapsed="0.043387"/>
+</kw>
+<doc>Partição P1 — e-mail vazio → mensagem "E-mail obrigatório"</doc>
+<status status="PASS" start="2026-05-29T16:43:27.872596" elapsed="1.886847"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve exibir erro ao deixar senha vazia" line="33">
+<kw name="Garantir tela de login" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:29.761483" level="INFO">Opening url 'http://localhost:3000'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.761322" elapsed="0.035744"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:29.798210" level="INFO">Executing JavaScript:
+localStorage.clear()
+Without any arguments.</msg>
+<arg>localStorage.clear()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.797756" elapsed="0.008674"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.806692" elapsed="0.037365"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.844306" elapsed="0.017292"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:30.362832" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:29.861757" elapsed="0.501262"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:29.761023" elapsed="0.602183"/>
+</kw>
+<kw name="Dado que o usuário informa o e-mail">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.364117" elapsed="0.016890"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:30.381515" level="INFO">Executing JavaScript:
+document.getElementById('login-email').value = 'cuidador@email.com';
+Without any arguments.</msg>
+<arg>document.getElementById('login-email').value = '${email}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.381246" elapsed="0.006167"/>
+</kw>
+<arg>cuidador@email.com</arg>
+<status status="PASS" start="2026-05-29T16:43:30.363669" elapsed="0.023918"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.389508" elapsed="0.016599"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:30.406661" level="INFO">Executing JavaScript:
+document.getElementById('login-senha').value = '';
+Without any arguments.</msg>
+<arg>document.getElementById('login-senha').value = '${senha}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.406353" elapsed="0.006402"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-29T16:43:30.388234" elapsed="0.024701"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:30.417441" level="INFO">Submitting form 'id=form-login'.</msg>
+<arg>id=form-login</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.417133" elapsed="0.020116"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:31.438114" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:30.437442" elapsed="1.000818"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:30.416753" elapsed="1.021648"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-login.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.439168" elapsed="0.016552"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:31.473855" level="INFO">${texto} = Senha obrigatória</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.455957" elapsed="0.017971"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.474169" elapsed="0.000601"/>
+</kw>
+<arg>Senha obrigatória</arg>
+<status status="PASS" start="2026-05-29T16:43:31.438786" elapsed="0.036163"/>
+</kw>
+<doc>Partição P2 — senha vazia → mensagem "Senha obrigatória"</doc>
+<status status="PASS" start="2026-05-29T16:43:29.760252" elapsed="1.715093"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve exibir erro com credenciais inválidas" line="40">
+<kw name="Garantir tela de login" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:31.477676" level="INFO">Opening url 'http://localhost:3000'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.477470" elapsed="0.033211"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:31.511191" level="INFO">Executing JavaScript:
+localStorage.clear()
+Without any arguments.</msg>
+<arg>localStorage.clear()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.510927" elapsed="0.017780"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.529067" elapsed="0.043118"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.572447" elapsed="0.019623"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:32.093563" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:31.592304" elapsed="0.501372"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:31.477108" elapsed="0.616694"/>
+</kw>
+<kw name="Dado que o usuário informa o e-mail">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.094649" elapsed="0.015261"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:32.110280" level="INFO">Executing JavaScript:
+document.getElementById('login-email').value = 'cuidador@email.com';
+Without any arguments.</msg>
+<arg>document.getElementById('login-email').value = '${email}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.110075" elapsed="0.005958"/>
+</kw>
+<arg>cuidador@email.com</arg>
+<status status="PASS" start="2026-05-29T16:43:32.094206" elapsed="0.021984"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.117035" elapsed="0.016905"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:32.134394" level="INFO">Executing JavaScript:
+document.getElementById('login-senha').value = 'senhaerrada';
+Without any arguments.</msg>
+<arg>document.getElementById('login-senha').value = '${senha}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.134155" elapsed="0.006529"/>
+</kw>
+<arg>senhaerrada</arg>
+<status status="PASS" start="2026-05-29T16:43:32.116618" elapsed="0.024177"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Submit Form" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:32.141682" level="INFO">Submitting form 'id=form-login'.</msg>
+<arg>id=form-login</arg>
+<doc>Submits a form identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.141461" elapsed="0.020043"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:43:33.162591" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:43:32.161748" elapsed="1.000966"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:32.141143" elapsed="1.021700"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-login.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:43:33.163528" elapsed="0.013887"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:43:33.193638" level="INFO">${texto} = Credenciais inválidas</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:43:33.177674" elapsed="0.016013"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:43:33.193829" elapsed="0.000379"/>
+</kw>
+<arg>Credenciais inválidas</arg>
+<status status="PASS" start="2026-05-29T16:43:33.163182" elapsed="0.031105"/>
+</kw>
+<doc>Partição P4 — senha errada → mensagem "Credenciais inválidas"</doc>
+<status status="PASS" start="2026-05-29T16:43:31.476207" elapsed="1.718334"/>
+</test>
+<kw name="Fechar navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-29T16:43:33.195647" elapsed="2.259114"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:33.195455" elapsed="2.259472"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:43:23.649411" elapsed="11.805599"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Test" id="s1" pass="4" fail="0" skip="0">Login Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

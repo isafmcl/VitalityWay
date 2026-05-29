@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env
+*.env
+
+# Robot Framework (logs locais extras; mantém results/ para evidências)
+log.html
+report.html
+output.xml
+!tests/robot/results/**/report.html
+!tests/robot/results/**/log.html
+!tests/robot/results/**/output.xml

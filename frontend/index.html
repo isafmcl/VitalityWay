@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitalityWay - Gerenciamento de Saúde</title>
+  <link rel="stylesheet" href="css/style.css?v=5" />
+</head>
+<body>
+
+<nav>
+  <h1>🌿 VitalityWay</h1>
+  <div id="nav-links">
+    <button id="btn-home">🏠 Início</button>
+    <button id="btn-medicos">👨‍⚕️ Médicos</button>
+    <button id="btn-consultas">📅 Consultas</button>
+    <button id="btn-logout">🚪 Sair</button>
+  </div>
+</nav>
+
+<!-- LOGIN PAGE -->
+<div class="page active" id="page-login">
+  <div class="form-card">
+    <h2>Bem-vindo!</h2>
+    <p class="form-subtitle">Entre com suas credenciais para acessar o sistema</p>
+    <form id="form-login" novalidate>
+      <div class="form-group">
+        <label for="login-email">📧 E-mail</label>
+        <input type="email" id="login-email" placeholder="seu@email.com" autocomplete="off" />
+      </div>
+
+      <div class="form-group">
+        <label for="login-senha">🔐 Senha</label>
+        <input type="password" id="login-senha" placeholder="Sua senha" />
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+    <div class="mensagem" id="msg-login"></div>
+    <p class="form-link">
+      Não tem conta? <a href="#" id="link-signup">Cadastre-se aqui</a>
+    </p>
+  </div>
+</div>
+
+<!-- SIGNUP PAGE -->
+<div class="page" id="page-signup">
+  <div class="form-card">
+    <h2>Criar Conta</h2>
+    <p class="form-subtitle">Preencha os dados abaixo para se cadastrar</p>
+    <form id="form-signup">
+      <div class="form-group">
+        <label for="signup-nome">👤 Nome Completo</label>
+        <input type="text" id="signup-nome" placeholder="João Silva" required />
+      </div>
+
+      <div class="form-group">
+        <label for="signup-email">📧 E-mail</label>
+        <input type="email" id="signup-email" placeholder="seu@email.com" autocomplete="off" required />
+      </div>
+
+      <div class="form-group">
+        <label for="signup-senha">🔐 Senha</label>
+        <input type="password" id="signup-senha" placeholder="Mínimo 6 caracteres" required />
+      </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+    <div class="mensagem" id="msg-signup"></div>
+    <p class="form-link">
+      Já tem conta? <a href="#" id="link-login-from-signup">Faça login</a>
+    </p>
+  </div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page" id="page-home">
+  <h2 class="welcome-title" id="home-boas-vindas">👋 Olá!</h2>
+  <div class="cards">
+    <div class="card" onclick="navigateTo('medicos')">
+      <div class="icon">👨‍⚕️</div>
+      <p>Médicos</p>
+    </div>
+    <div class="card" onclick="navigateTo('consultas')">
+      <div class="icon">📅</div>
+      <p>Consultas</p>
+    </div>
+  </div>
+</div>
+
+<!-- MEDICOS PAGE -->
+<div class="page" id="page-medicos">
+  <div class="content-section">
+    <h3>➕ Cadastrar Novo Médico</h3>
+    <form id="form-medico">
+      <div class="form-group">
+        <label for="med-nome">👤 Nome do Médico</label>
+        <input type="text" id="med-nome" placeholder="Dr. João Silva" required />
+      </div>
+
+      <div class="form-group">
+        <label for="med-crm">📋 CRM</label>
+        <input type="text" id="med-crm" placeholder="Ex: 123456" required />
+      </div>
+
+      <div class="form-group">
+        <label for="med-esp">🏥 Especialidade</label>
+        <select id="med-esp" required></select>
+      </div>
+
+      <button type="submit">Cadastrar Médico</button>
+    </form>
+    <div class="mensagem" id="msg-medico"></div>
+  </div>
+</div>
+
+<!-- CONSULTAS PAGE -->
+<div class="page" id="page-consultas">
+  <div class="content-section">
+    <h3>📅 Agendar Consulta</h3>
+    <form id="form-consulta" novalidate>
+      <div class="form-group">
+        <label for="con-idoso">👴 Idoso</label>
+        <select id="con-idoso" required>
+          <option value="">Selecione...</option>
+          <option value="i1">Maria Aparecida</option>
+          <option value="i2">José Ferreira</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="con-medico">👨‍⚕️ Médico</label>
+        <select id="con-medico" required></select>
+      </div>
+
+      <div class="form-group">
+        <label for="con-data">📆 Data</label>
+        <input type="date" id="con-data" required />
+      </div>
+
+      <div class="form-group">
+        <label for="con-hora">⏰ Hora</label>
+        <input type="time" id="con-hora" required />
+      </div>
+
+      <div class="form-group">
+        <label for="con-local">📍 Local</label>
+        <input type="text" id="con-local" placeholder="Ex: UBS Centro" required />
+      </div>
+
+      <button type="submit">Agendar Consulta</button>
+    </form>
+    <div class="mensagem" id="msg-consulta"></div>
+  </div>
+
+  <div class="content-section">
+    <h3>📋 Consultas Agendadas</h3>
+    <table id="tabela-consultas">
+      <thead>
+        <tr>
+          <th>Idoso</th>
+          <th>Médico</th>
+          <th>Data</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-consultas"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="js/api.js?v=9"></script>
+<script src="js/ui.js?v=9"></script>
+<script src="js/main.js?v=9"></script>
+</body>
+</html>

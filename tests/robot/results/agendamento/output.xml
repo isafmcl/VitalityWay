@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.0 on win32)" generated="2026-05-29T16:46:48.581275" rpa="false" schemaversion="5">
+<suite id="s1" name="Agendamento Test" source="C:\Users\isabelle.santos\Downloads\vitalityway_completo\vitalityway\tests\robot\agendamento_test.robot">
+<kw name="Fazer login e acessar tela de consultas" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:49.903632" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-29T16:46:49.903186" elapsed="3.992167"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-29T16:46:53.895625" elapsed="0.063225"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:46:53.959104" elapsed="0.185071"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:54.144923" level="INFO">Typing text 'cuidador@email.com' into text field 'id=login-email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>cuidador@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:54.144443" elapsed="0.601690"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:54.746793" level="INFO">Typing password into text field 'id=login-senha'.</msg>
+<msg time="2026-05-29T16:46:54.776340" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>12345678</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:54.746388" elapsed="0.083029"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:54.830062" level="INFO">Clicking button 'css=#form-login button[type=submit]'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:54.829627" elapsed="0.381163"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:46:56.212054" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:46:55.211022" elapsed="1.001145"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:56.212521" level="INFO">Executing JavaScript:
+navigateTo('consultas')
+Without any arguments.</msg>
+<arg>navigateTo('consultas')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:46:56.212357" elapsed="0.159233"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:46:58.373099" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:46:56.371829" elapsed="2.001390"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEL_IDOSO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:46:58.373427" elapsed="0.043890"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:46:49.902141" elapsed="8.515336"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve exibir erro quando data não é preenchida" line="24">
+<kw name="Garantir tela de consultas" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:58.423484" level="INFO">Executing JavaScript:
+navigateTo('consultas')
+Without any arguments.</msg>
+<arg>navigateTo('consultas')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:46:58.423250" elapsed="0.007108"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:46:59.431711" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:46:58.430640" elapsed="1.001231"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEL_IDOSO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.432121" elapsed="0.015374"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:46:58.422818" elapsed="1.024869"/>
+</kw>
+<kw name="Dado que o usuário seleciona o idoso">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.452971" level="INFO">Selecting options from selection list 'id=con-idoso' by value i1.</msg>
+<arg>${SEL_IDOSO}</arg>
+<arg>${idoso_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.452665" elapsed="0.108454"/>
+</kw>
+<arg>i1</arg>
+<status status="PASS" start="2026-05-29T16:46:59.452263" elapsed="0.109006"/>
+</kw>
+<kw name="E seleciona o médico">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.562597" level="INFO">Selecting options from selection list 'id=con-medico' by value m1.</msg>
+<arg>${SEL_MEDICO}</arg>
+<arg>${medico_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.562162" elapsed="0.075021"/>
+</kw>
+<arg>m1</arg>
+<status status="PASS" start="2026-05-29T16:46:59.561686" elapsed="0.075671"/>
+</kw>
+<kw name="E informa a data">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.639451" level="INFO">Executing JavaScript:
+document.getElementById('con-data').value = '';
+Without any arguments.</msg>
+<arg>document.getElementById('con-data').value = '${data}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.639052" elapsed="0.007800"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-29T16:46:59.637747" elapsed="0.009278"/>
+</kw>
+<kw name="E informa a hora">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.648143" level="INFO">Executing JavaScript:
+document.getElementById('con-hora').value = '10:00';
+Without any arguments.</msg>
+<arg>document.getElementById('con-hora').value = '${hora}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.647855" elapsed="0.005897"/>
+</kw>
+<arg>10:00</arg>
+<status status="PASS" start="2026-05-29T16:46:59.647421" elapsed="0.006470"/>
+</kw>
+<kw name="E informa o local">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_LOCAL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.654571" elapsed="0.040324"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.697514" level="INFO">Typing text 'UBS Centro' into text field 'id=con-local'.</msg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.697077" elapsed="0.074779"/>
+</kw>
+<arg>'${local}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.695372" elapsed="0.076689"/>
+</kw>
+<arg>UBS Centro</arg>
+<status status="PASS" start="2026-05-29T16:46:59.654237" elapsed="0.117969"/>
+</kw>
+<kw name="Quando clicar em Agendar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:46:59.773602" level="INFO">Clicking button 'css=#form-consulta button[type=submit]'.</msg>
+<arg>${BTN_AGENDAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.773179" elapsed="0.115624"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:47:00.890974" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:46:59.889950" elapsed="1.001129"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:46:59.772677" elapsed="1.118522"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-consulta.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:47:00.891840" elapsed="0.017650"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:00.960270" level="INFO">${texto} = Data obrigatória</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:00.909749" elapsed="0.050576"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:47:00.960485" elapsed="0.000417"/>
+</kw>
+<arg>Data obrigatória</arg>
+<status status="PASS" start="2026-05-29T16:47:00.891530" elapsed="0.069453"/>
+</kw>
+<doc>Partição P1 — data vazia → "Data obrigatória"</doc>
+<status status="PASS" start="2026-05-29T16:46:58.421476" elapsed="2.539768"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir erro quando data é passada" line="34">
+<kw name="Garantir tela de consultas" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:00.963008" level="INFO">Executing JavaScript:
+navigateTo('consultas')
+Without any arguments.</msg>
+<arg>navigateTo('consultas')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:00.962835" elapsed="0.006046"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:47:01.970464" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:47:00.969130" elapsed="1.001485"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEL_IDOSO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:47:01.970853" elapsed="0.018504"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:47:00.962500" elapsed="1.027026"/>
+</kw>
+<kw name="Dado que o usuário seleciona o idoso">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:01.990795" level="INFO">Selecting options from selection list 'id=con-idoso' by value i1.</msg>
+<arg>${SEL_IDOSO}</arg>
+<arg>${idoso_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:47:01.990297" elapsed="0.047307"/>
+</kw>
+<arg>i1</arg>
+<status status="PASS" start="2026-05-29T16:47:01.989925" elapsed="0.047874"/>
+</kw>
+<kw name="E seleciona o médico">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:02.039513" level="INFO">Selecting options from selection list 'id=con-medico' by value m1.</msg>
+<arg>${SEL_MEDICO}</arg>
+<arg>${medico_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.039089" elapsed="0.075118"/>
+</kw>
+<arg>m1</arg>
+<status status="PASS" start="2026-05-29T16:47:02.038572" elapsed="0.075848"/>
+</kw>
+<kw name="E informa a data">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:02.115673" level="INFO">Executing JavaScript:
+document.getElementById('con-data').value = '2020-01-01';
+Without any arguments.</msg>
+<arg>document.getElementById('con-data').value = '${data}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.115386" elapsed="0.006481"/>
+</kw>
+<arg>2020-01-01</arg>
+<status status="PASS" start="2026-05-29T16:47:02.114954" elapsed="0.007080"/>
+</kw>
+<kw name="E informa a hora">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:02.123072" level="INFO">Executing JavaScript:
+document.getElementById('con-hora').value = '10:00';
+Without any arguments.</msg>
+<arg>document.getElementById('con-hora').value = '${hora}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.122860" elapsed="0.006734"/>
+</kw>
+<arg>10:00</arg>
+<status status="PASS" start="2026-05-29T16:47:02.122513" elapsed="0.007274"/>
+</kw>
+<kw name="E informa o local">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_LOCAL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.130743" elapsed="0.039840"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:02.172836" level="INFO">Typing text 'UBS Centro' into text field 'id=con-local'.</msg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.172408" elapsed="0.081572"/>
+</kw>
+<arg>'${local}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.170805" elapsed="0.083321"/>
+</kw>
+<arg>UBS Centro</arg>
+<status status="PASS" start="2026-05-29T16:47:02.130264" elapsed="0.123989"/>
+</kw>
+<kw name="Quando clicar em Agendar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:02.255453" level="INFO">Clicking button 'css=#form-consulta button[type=submit]'.</msg>
+<arg>${BTN_AGENDAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.255079" elapsed="0.077665"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:47:03.333905" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:47:02.332979" elapsed="1.001049"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:47:02.254685" elapsed="1.079451"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-consulta.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:47:03.334741" elapsed="0.014525"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:03.364699" level="INFO">${texto} = Data inválida</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:03.349460" elapsed="0.015292"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:47:03.364955" elapsed="0.000468"/>
+</kw>
+<arg>Data inválida</arg>
+<status status="PASS" start="2026-05-29T16:47:03.334436" elapsed="0.031107"/>
+</kw>
+<doc>Partição P2 — data no passado → "Data inválida"</doc>
+<status status="PASS" start="2026-05-29T16:47:00.961892" elapsed="2.404005"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve agendar consulta com data futura válida" line="44">
+<kw name="Garantir tela de consultas" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:03.368177" level="INFO">Executing JavaScript:
+navigateTo('consultas')
+Without any arguments.</msg>
+<arg>navigateTo('consultas')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:03.367949" elapsed="0.005327"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:47:04.374105" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:47:03.373527" elapsed="1.000686"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEL_IDOSO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.374371" elapsed="0.013892"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:47:03.367584" elapsed="1.020813"/>
+</kw>
+<kw name="Dado que o usuário seleciona o idoso">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.389386" level="INFO">Selecting options from selection list 'id=con-idoso' by value i1.</msg>
+<arg>${SEL_IDOSO}</arg>
+<arg>${idoso_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.389107" elapsed="0.038930"/>
+</kw>
+<arg>i1</arg>
+<status status="PASS" start="2026-05-29T16:47:04.388759" elapsed="0.039450"/>
+</kw>
+<kw name="E seleciona o médico">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.429337" level="INFO">Selecting options from selection list 'id=con-medico' by value m1.</msg>
+<arg>${SEL_MEDICO}</arg>
+<arg>${medico_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.429000" elapsed="0.062286"/>
+</kw>
+<arg>m1</arg>
+<status status="PASS" start="2026-05-29T16:47:04.428633" elapsed="0.062837"/>
+</kw>
+<kw name="E informa a data">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.492374" level="INFO">Executing JavaScript:
+document.getElementById('con-data').value = '2026-07-10';
+Without any arguments.</msg>
+<arg>document.getElementById('con-data').value = '${data}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.492148" elapsed="0.007928"/>
+</kw>
+<arg>2026-07-10</arg>
+<status status="PASS" start="2026-05-29T16:47:04.491802" elapsed="0.008451"/>
+</kw>
+<kw name="E informa a hora">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.501255" level="INFO">Executing JavaScript:
+document.getElementById('con-hora').value = '14:30';
+Without any arguments.</msg>
+<arg>document.getElementById('con-hora').value = '${hora}';</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.500983" elapsed="0.005343"/>
+</kw>
+<arg>14:30</arg>
+<status status="PASS" start="2026-05-29T16:47:04.500630" elapsed="0.005807"/>
+</kw>
+<kw name="E informa o local">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_LOCAL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.507070" elapsed="0.035080"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.544692" level="INFO">Typing text 'UBS Centro' into text field 'id=con-local'.</msg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.544021" elapsed="0.075806"/>
+</kw>
+<arg>'${local}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_LOCAL}</arg>
+<arg>${local}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.542372" elapsed="0.077604"/>
+</kw>
+<arg>UBS Centro</arg>
+<status status="PASS" start="2026-05-29T16:47:04.506751" elapsed="0.113362"/>
+</kw>
+<kw name="Quando clicar em Agendar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:04.621162" level="INFO">Clicking button 'css=#form-consulta button[type=submit]'.</msg>
+<arg>${BTN_AGENDAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.620848" elapsed="0.068809"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-29T16:47:05.690595" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-29T16:47:04.689875" elapsed="1.000872"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:47:04.620505" elapsed="1.070402"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-consulta.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-29T16:47:05.691762" elapsed="0.018079"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-29T16:47:05.729259" level="INFO">${texto} = Consulta agendada com sucesso</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-29T16:47:05.710090" elapsed="0.019247"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-29T16:47:05.729584" elapsed="0.000582"/>
+</kw>
+<arg>Consulta agendada com sucesso</arg>
+<status status="PASS" start="2026-05-29T16:47:05.691332" elapsed="0.038972"/>
+</kw>
+<doc>Partição P4 — data futura → "Consulta agendada com sucesso"</doc>
+<status status="PASS" start="2026-05-29T16:47:03.366689" elapsed="2.363914"/>
+</test>
+<kw name="Fechar navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-29T16:47:05.732023" elapsed="2.283254"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:47:05.731759" elapsed="2.283638"/>
+</kw>
+<status status="PASS" start="2026-05-29T16:46:48.583574" elapsed="19.431869"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Agendamento Test" id="s1" pass="3" fail="0" skip="0">Agendamento Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

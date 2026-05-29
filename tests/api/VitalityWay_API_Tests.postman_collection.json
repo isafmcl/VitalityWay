@@ -1,0 +1,297 @@
+{
+  "info": {
+    "name": "VitalityWay - Testes de API",
+    "_postman_id": "vitalityway-tests-2026",
+    "description": "Coleção de testes de API para o sistema VitalityWay",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Teste de API 1 - Login (POST /login)",
+      "item": [
+        {
+          "name": "CT01 - Login válido",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 200\", function () {",
+            "    pm.response.to.have.status(200);",
+            "});",
+            "pm.test(\"Mensagem de sucesso\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Login realizado com sucesso\");",
+            "});",
+            "pm.test(\"Resposta contém token\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.dados).to.have.property(\"token\");",
+            "    pm.collectionVariables.set(\"token\", json.dados.token);",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"cuidador@email.com\",\n  \"senha\": \"12345678\"\n}" }
+          }
+        },
+        {
+          "name": "CT02 - E-mail vazio",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: E-mail obrigatório\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"E-mail obrigatório\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"\",\n  \"senha\": \"12345678\"\n}" }
+          }
+        },
+        {
+          "name": "CT03 - E-mail inválido (sem @)",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: E-mail inválido\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"E-mail inválido\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"naoehmail\",\n  \"senha\": \"12345678\"\n}" }
+          }
+        },
+        {
+          "name": "CT04 - Senha vazia",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: Senha obrigatória\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Senha obrigatória\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"cuidador@email.com\",\n  \"senha\": \"\"\n}" }
+          }
+        },
+        {
+          "name": "CT05 - Credenciais inválidas",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 401\", function () {",
+            "    pm.response.to.have.status(401);",
+            "});",
+            "pm.test(\"Mensagem: Credenciais inválidas\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Credenciais inválidas\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"cuidador@email.com\",\n  \"senha\": \"senhaerrada\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teste de API 2 - Cadastro de Médico (POST /medicos)",
+      "item": [
+        {
+          "name": "CT01 - Cadastro válido",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 201\", function () {",
+            "    pm.response.to.have.status(201);",
+            "});",
+            "pm.test(\"Mensagem: Médico cadastrado com sucesso\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Médico cadastrado com sucesso\");",
+            "});",
+            "pm.test(\"Resposta contém ID do médico\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.dados).to.have.property(\"id\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/medicos",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Dr. Paulo Sauro\",\n  \"crm\": \"777888\",\n  \"especialidadeId\": \"e1\"\n}" }
+          }
+        },
+        {
+          "name": "CT02 - Nome vazio",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: Nome obrigatório\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Nome obrigatório\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/medicos",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"\",\n  \"crm\": \"777888\",\n  \"especialidadeId\": \"e1\"\n}" }
+          }
+        },
+        {
+          "name": "CT03 - CRM inválido (letras)",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: CRM inválido\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"CRM inválido\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/medicos",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Dr. Teste\",\n  \"crm\": \"AB1234\",\n  \"especialidadeId\": \"e1\"\n}" }
+          }
+        },
+        {
+          "name": "CT04 - Especialidade vazia",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: Especialidade obrigatória\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Especialidade obrigatória\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/medicos",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Dr. Teste\",\n  \"crm\": \"777999\",\n  \"especialidadeId\": \"\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teste de API 3 - Agendamento (POST /consultas)",
+      "item": [
+        {
+          "name": "CT01 - Agendamento válido",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 201\", function () {",
+            "    pm.response.to.have.status(201);",
+            "});",
+            "pm.test(\"Mensagem: Consulta agendada com sucesso\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Consulta agendada com sucesso\");",
+            "});",
+            "pm.test(\"Status da consulta é agendada\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.dados.status).to.eql(\"agendada\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/consultas",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"idosoId\": \"i1\",\n  \"medicoId\": \"m1\",\n  \"data\": \"2026-07-10\",\n  \"hora\": \"14:30\",\n  \"local\": \"UBS Centro\"\n}" }
+          }
+        },
+        {
+          "name": "CT02 - Data passada",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: Data inválida\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Data inválida\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/consultas",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"idosoId\": \"i1\",\n  \"medicoId\": \"m1\",\n  \"data\": \"2020-01-01\",\n  \"hora\": \"10:00\",\n  \"local\": \"UBS Centro\"\n}" }
+          }
+        },
+        {
+          "name": "CT03 - Data com formato inválido",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 400\", function () {",
+            "    pm.response.to.have.status(400);",
+            "});",
+            "pm.test(\"Mensagem: Data inválida\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Data inválida\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/consultas",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"idosoId\": \"i1\",\n  \"medicoId\": \"m1\",\n  \"data\": \"40/15/2026\",\n  \"hora\": \"10:00\",\n  \"local\": \"UBS Centro\"\n}" }
+          }
+        },
+        {
+          "name": "CT04 - Sem autorização (sem token)",
+          "event": [{ "listen": "test", "script": { "exec": [
+            "pm.test(\"Status code deve ser 401\", function () {",
+            "    pm.response.to.have.status(401);",
+            "});",
+            "pm.test(\"Mensagem: Token inválido ou ausente\", function () {",
+            "    var json = pm.response.json();",
+            "    pm.expect(json.mensagem).to.eql(\"Token inválido ou ausente\");",
+            "});"
+          ]}}],
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/consultas",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"idosoId\": \"i1\",\n  \"medicoId\": \"m1\",\n  \"data\": \"2026-07-10\",\n  \"hora\": \"14:30\",\n  \"local\": \"UBS Centro\"\n}" }
+          }
+        }
+      ]
+    }
+  ]
+}
