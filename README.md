@@ -2,7 +2,7 @@
 
 Sistema moderno e intuitivo para gerenciamento de consultas médicas para idosos. Com interface responsiva, design moderno e fluxo user-friendly.
 
-## ✨ Melhorias Implementadas
+## Melhorias Implementadas
 
 ✅ **Design Moderno** — Interface com gradiente, animações suaves e tipografia moderna (Google Fonts)  
 ✅ **Responsive** — Funciona perfeitamente em desktop e mobile  
@@ -11,7 +11,7 @@ Sistema moderno e intuitivo para gerenciamento de consultas médicas para idosos
 ✅ **Dark/Light Friendly** — Cores contrastantes e legibilidade garantida  
 ✅ **Ícones Visuais** — Emojis estrategicamente posicionados para facilitar compreensão  
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 vitalityway/
@@ -49,7 +49,7 @@ vitalityway/
         └── agendamento_test.robot
 ```
 
-## 🚀 Como Rodar o Projeto
+## Como Rodar o Projeto
 
 ### 1. Backend
 
@@ -75,7 +75,7 @@ python -m http.server 3000
 
 **Acesse:** `http://localhost:3000`
 
-### 📌 Credenciais de Teste
+### Credenciais de Teste
 
 | Email | Senha | Perfil |
 |-------|-------|--------|
@@ -84,7 +84,7 @@ python -m http.server 3000
 
 **Ou crie uma nova conta** clicando em "Cadastre-se aqui" na página de login.
 
-## 🎨 Design & UX
+## Design & UX
 
 ### Cores
 - **Gradiente Principal**: `#667eea` → `#764ba2` (roxo moderno)
@@ -97,12 +97,12 @@ python -m http.server 3000
 - **Body**: Peso 400-500, legível
 
 ### Animações
-- ✨ Fade-in ao carregar páginas
-- 📊 Hover effects nos botões e cards
-- 🎯 Transições suaves nos inputs
-- 🪁 Float animation nos ícones
+-  Fade-in ao carregar páginas
+-  Hover effects nos botões e cards
+- Transições suaves nos inputs
+-  Float animation nos ícones
 
-## 📱 Fluxo da Aplicação
+##  Fluxo da Aplicação
 
 ```
 ┌─────────────────────────────────────┐
@@ -129,7 +129,7 @@ python -m http.server 3000
                       └──────────────────┘
 ```
 
-## 🔧 API Endpoints
+## API Endpoints
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -143,7 +143,7 @@ python -m http.server 3000
 | GET | `/consultas` | Listar consultas |
 | GET | `/health` | Status do servidor |
 
-## 🧪 Testes
+## Testes
 
 ### Postman
 ```bash
@@ -157,7 +157,7 @@ robot tests/robot/login_test.robot
 robot tests/robot/agendamento_test.robot
 ```
 
-## 📚 Stack Tecnológico
+## Stack Tecnológico
 
 **Backend**
 - Flask 3.0.3
@@ -170,7 +170,7 @@ robot tests/robot/agendamento_test.robot
 - Vanilla JavaScript (sem dependências)
 - Google Fonts (Inter)
 
-## 💡 Princípios Aplicados
+## Princípios Aplicados
 
 ✅ **Clean Code** — Funções pequenas, nomes descritivos  
 ✅ **SOLID** — Single Responsibility, separação de concerns  
@@ -178,13 +178,6 @@ robot tests/robot/agendamento_test.robot
 ✅ **Responsive Design** — Mobile-first, funciona em todos os tamanhos  
 ✅ **Acessibilidade** — Bom contraste, labels em inputs, ícones visuais  
 
-## 📝 Licença
-
-Este projeto é fornecido como está para fins educacionais e de demostração.
-```bash
-pip install robotframework robotframework-seleniumlibrary
-# Instale também o ChromeDriver compatível com sua versão do Chrome
-```
 
 ### Executando os testes
 ```bash
