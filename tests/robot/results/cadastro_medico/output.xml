@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-05-30T15:33:14.549566" rpa="false" schemaversion="5">
+<suite id="s1" name="Cadastro Medico" source="C:\Users\Guilherme\Downloads\VitalityWay-main\VitalityWay-main\tests\robot\cadastro_medico.robot">
+<kw name="Fazer login e acessar tela de médicos" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:14.819156" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-30T15:33:14.818934" elapsed="4.366825"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.186084" elapsed="0.033775"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.220167" elapsed="0.015090"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:19.235788" level="INFO">Typing text 'cuidador@email.com' into text field 'id=login-email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>cuidador@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.235450" elapsed="0.066715"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:19.302638" level="INFO">Typing password into text field 'id=login-senha'.</msg>
+<msg time="2026-05-30T15:33:19.321172" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>12345678</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.302354" elapsed="0.042113"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:19.344927" level="INFO">Clicking button 'css=#form-login button[type=submit]'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.344653" elapsed="0.043462"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-30T15:33:21.388956" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-30T15:33:19.388408" elapsed="2.000686"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:21.389552" level="INFO">Executing JavaScript:
+navigateTo('medicos')
+Without any arguments.</msg>
+<arg>navigateTo('medicos')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-30T15:33:21.389312" elapsed="0.004005"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-30T15:33:24.393850" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-30T15:33:21.393486" elapsed="3.000493"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-30T15:33:24.394167" elapsed="0.010298"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:14.818419" elapsed="9.586151"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve cadastrar médico com dados válidos" line="22">
+<kw name="Garantir tela de médicos" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:24.405507" level="INFO">Executing JavaScript:
+navigateTo('medicos')
+Without any arguments.</msg>
+<arg>navigateTo('medicos')</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-30T15:33:24.405390" elapsed="0.002476"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-30T15:33:25.408534" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-30T15:33:24.407993" elapsed="1.000680"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.408862" elapsed="0.007799"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:24.405172" elapsed="1.011593"/>
+</kw>
+<kw name="Dado que o usuário informa o nome do médico">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.417385" elapsed="0.016310"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:25.434184" level="INFO">Typing text 'Dr Robot Guilherme Dois' into text field 'id=med-nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.433890" elapsed="0.043786"/>
+</kw>
+<arg>Dr Robot Guilherme Dois</arg>
+<status status="PASS" start="2026-05-30T15:33:25.417082" elapsed="0.060735"/>
+</kw>
+<kw name="E informa o CRM">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_CRM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.478459" elapsed="0.024173"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:25.503373" level="INFO">Typing text '8888888' into text field 'id=med-crm'.</msg>
+<arg>${INPUT_CRM}</arg>
+<arg>${crm}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.502925" elapsed="0.045557"/>
+</kw>
+<arg>8888888</arg>
+<status status="PASS" start="2026-05-30T15:33:25.478157" elapsed="0.070439"/>
+</kw>
+<kw name="E seleciona a especialidade">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:25.549397" level="INFO">Selecting options from selection list 'id=med-esp' by value e1.</msg>
+<arg>${SEL_ESP}</arg>
+<arg>${especialidade_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.549176" elapsed="0.045006"/>
+</kw>
+<arg>e1</arg>
+<status status="PASS" start="2026-05-30T15:33:25.548905" elapsed="0.045395"/>
+</kw>
+<kw name="Quando clicar em Cadastrar Médico">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:25.595114" level="INFO">Clicking button 'css=#form-medico button[type=submit]'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.594847" elapsed="0.049739"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-30T15:33:26.645133" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-30T15:33:25.644777" elapsed="1.000494"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:25.594599" elapsed="1.050784"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#msg-medico.show</arg>
+<arg>timeout=8s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-30T15:33:26.646027" elapsed="0.010021"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-30T15:33:26.668996" level="INFO">${texto} = Médico cadastrado com sucesso</msg>
+<var>${texto}</var>
+<arg>${MSG}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-30T15:33:26.656241" elapsed="0.012801"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${texto}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-05-30T15:33:26.669216" elapsed="0.000358"/>
+</kw>
+<arg>Médico cadastrado com sucesso</arg>
+<status status="PASS" start="2026-05-30T15:33:26.645731" elapsed="0.023910"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:24.404651" elapsed="2.265235"/>
+</test>
+<kw name="Fechar navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-30T15:33:26.670804" elapsed="2.327617"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:26.670617" elapsed="2.327952"/>
+</kw>
+<status status="PASS" start="2026-05-30T15:33:14.550960" elapsed="14.447649"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Cadastro Medico" id="s1" pass="1" fail="0" skip="0">Cadastro Medico</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
