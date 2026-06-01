@@ -1,12 +1,13 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library           SeleniumLibrary
 
 Suite Setup       Fazer login e acessar tela de consultas
 Suite Teardown    Fechar navegador
 Test Setup        Garantir tela de consultas
 
+
 *** Variables ***
-${URL}              http://localhost:5500
+${URL}              http://localhost:3000
 ${BROWSER}          chrome
 ${INPUT_EMAIL}      id=login-email
 ${INPUT_SENHA}      id=login-senha
@@ -19,8 +20,8 @@ ${INPUT_LOCAL}      id=con-local
 ${BTN_AGENDAR}      css=#form-consulta button[type=submit]
 ${MSG}              id=msg-consulta
 
-*** Test Cases ***
 
+*** Test Cases ***
 CT01 - Deve exibir erro quando data não é preenchida
     [Documentation]    Partição P1 — data vazia → "Data obrigatória"
     Dado que o usuário seleciona o idoso    i1
@@ -51,15 +52,15 @@ CT03 - Deve agendar consulta com data futura válida
     Quando clicar em Agendar
     Então o sistema deve apresentar a mensagem    Consulta agendada com sucesso
 
-*** Keywords ***
 
+*** Keywords ***
 Fazer login e acessar tela de consultas
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     Wait Until Element Is Visible    ${INPUT_EMAIL}    timeout=10s
-    Input Text      ${INPUT_EMAIL}    cuidador@email.com
-    Input Password  ${INPUT_SENHA}    12345678
-    Click Button    ${BTN_LOGIN}
+    Input Text       ${INPUT_EMAIL}    cuidador@email.com
+    Input Password   ${INPUT_SENHA}    12345678
+    Click Button     ${BTN_LOGIN}
     Sleep    1s
     Execute JavaScript    navigateTo('consultas')
     Sleep    2s
