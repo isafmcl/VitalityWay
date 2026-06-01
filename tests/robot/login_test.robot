@@ -1,12 +1,13 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library           SeleniumLibrary
 
 Suite Setup       Abrir navegador na tela de login
 Suite Teardown    Fechar navegador
 Test Setup        Garantir tela de login
 
+
 *** Variables ***
-${URL}            http://localhost:5500
+${URL}            http://localhost:3000
 ${BROWSER}        chrome
 ${INPUT_EMAIL}    id=login-email
 ${INPUT_SENHA}    id=login-senha
@@ -14,8 +15,8 @@ ${BTN_ENTRAR}     css=#form-login button[type=submit]
 ${MSG}            id=msg-login
 ${TITULO_HOME}    id=home-boas-vindas
 
-*** Test Cases ***
 
+*** Test Cases ***
 CT01 - Deve realizar login com credenciais válidas
     [Documentation]    Partição P3 — credenciais válidas → login realizado com sucesso
     Dado que o usuário informa o e-mail    cuidador@email.com
@@ -44,8 +45,8 @@ CT04 - Deve exibir erro com credenciais inválidas
     Quando clicar em Entrar
     Então o sistema deve apresentar a mensagem    Credenciais inválidas
 
-*** Keywords ***
 
+*** Keywords ***
 Abrir navegador na tela de login
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
