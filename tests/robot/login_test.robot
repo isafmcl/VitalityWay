@@ -6,7 +6,7 @@ Suite Teardown    Fechar navegador
 Test Setup        Garantir tela de login
 
 *** Variables ***
-${URL}            http://localhost:3000
+${URL}            http://localhost:5500
 ${BROWSER}        chrome
 ${INPUT_EMAIL}    id=login-email
 ${INPUT_SENHA}    id=login-senha
